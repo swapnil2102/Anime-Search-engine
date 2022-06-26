@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+	<style>
+		.center{
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			width: 38%;
+		}
+		.button .btn:hover{
+			background-color: green;
+		}
+
+		.btn{
+			background-color: lightblue;
+		}
+	</style>
+	
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
+
+
+{% block body %} 
+
+
+<div class="container mt-5">
+	<div class="center">
+		<img src="{% static 'anime-wallpaper.png' %}" style="border: 3px solid white; width: 400px; height: 300px;">
+	</div>
+	<h2 class="card-title mt-1 text-center" style="color: purple;">Anime search</h2>
+	<form action="result/" method="GET">
+	<div class="row">
+		<div class="form-group input-group col-sm-10">
+			<div class="input-group-prepend">
+				<span class="input-group-text mb-3"> <i class="fa fa-search"></i> </span>
+	
+			 </div>
+			 
+			 
+				
+				<input name="q" class="form-control search" placeholder="Enter your anime here:)" type="text">
+				
+				<div class="form-group button">
+					<button class="btn btn-outline-success float-right" type="submit" id="search_submit"> Search  </button>
+				</div>  
+			
+			</form>
+		</div>
+		
+		
+
+	</div>
+</div>
+<div class="container search_results">
+</div>
+
+{% endblock %}

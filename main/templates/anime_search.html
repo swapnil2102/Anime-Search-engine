@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+
+{% block styles %}
+{{ block.super }}
+<style>
+    .abc{
+        border: solid 10px rgb(64, 80, 74);
+        width: 510px;
+        min-height: 600px;
+        border-radius: 7px;
+        margin-top: 10px;
+        margin-left: 75px;
+        margin-right: 50px;
+        display: inline-block;
+        vertical-align: top;
+        box-shadow: 10px 10px 8px #1f1d1d;
+        
+    }
+
+    h1{
+        color:red;
+        text-align: center;
+    }
+
+    #desc{
+        border:solid 1px green;
+        border-radius: 10px;
+        margin-left: 10%;
+        margin-right: 20%;
+        color:rgb(13, 38, 85);
+        background-color: lightblue;
+    }
+
+    h4{
+        margin-left: 45%;
+        color: goldenrod;
+    }
+
+    #jap{
+        color:palevioletred;
+    }
+
+    img {
+        border:solid 4px black;
+        width: 490px;
+        height: 400px;
+        
+    }
+
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+
+
+{% for a in objlist %}
+    <div class="abc">
+        <img src="{{a.img.url}}">
+        <h1>{{a.Anime}}</h1>
+        <h2 id="jap">{{a.Animejap}}</h2>
+        <p id="desc">{{a.Desciption}}</p>
+        <h4><i class="fa fa-star" style="color:yellow"></i>{{a.Ratings}}</h4>
+    </div>
+    
+{% endfor %}
+
+
+{% endblock %}
+

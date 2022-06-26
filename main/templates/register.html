@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block styles %}
+{{ block.super }}
+	<style>
+		.center{
+			display: block;
+			margin-left: 34%;
+            margin-right: 37%;
+            padding: 10px;
+            margin-top: 10%;
+            border: solid 3px gainsboro;
+            box-shadow: 10px 10px 8px #1f1d1d;
+		}
+
+        .label{
+            color: black;
+        }
+        input[type=text]:focus, input[type=email]:focus,input[type=password]:focus  {
+            background-color: rgb(221, 221, 221);
+          }
+
+        button:hover{
+            background-color: green;
+            color: lightgreen;
+        }
+
+        button{
+            background-color: lightgreen;
+            color: darkgreen;
+            border-radius: 9px;
+            margin-left: 80%;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: left;
+          }
+    </style>
+ {% endblock %}
+{% block body %}
+<h1 style="margin-left: 36%; color: blue;">Registration Form</h1>
+<div class="center">
+    <form action="http://127.0.0.1:8000/accounts/register/" method="POST">
+        {% csrf_token %}
+        <label class="label">First Name:</label>
+        <input type="text" name="first_name" placeholder="First Name"><br>
+        <label class="label">Last Name:    </label>
+        <input type="text" name="last_name" placeholder="Last Name"><br>
+        <label class="label">Username:</label>
+        <input type="text" name="username" placeholder="User Name"><br>
+        <label class="label">Email:</label>
+        <input type="email" name="email" placeholder="Email"><br>
+        <label class="label">Password:</label>
+        <input type="password" name="password1" placeholder="Password"><br>
+        <label class="label">Confirm Password:</label>
+        <input type="password" name="password2" placeholder="Confirm Password"><br>
+        <button type="submit">Submit</button>
+
+    </form>
+
+    
+    {% if messages %}
+        {% for message in messages %}
+            {%if message.tags %}<script>alert('{{message}}')</script>{% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}
+</html>
